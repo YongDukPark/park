@@ -1,0 +1,49 @@
+drop table travel;
+create table travel(
+	num number primary key,
+	name varchar2(10),
+	age number,
+	area varchar2(30),
+	style varchar2(15),
+	price varchar2(10)
+);
+
+drop sequence travel_seq;
+--create sequence travel_seq nocache;
+create sequence travel_seq 
+minvalue 1
+start with 1
+nocache;
+
+
+insert into travel
+values(travel_seq.nextval, '수지',21, '동남아','패키지','200~300');
+
+commit;
+
+col num for 99
+col age for 999
+col name for a6
+col area for a25
+col style for a10
+col price for a10
+select * from travel;
+
+
+1.pom.xml
+	oracle, datasource,mybatis, 유효성 검사	디펜던시 설정
+2.web.xml
+	컨텍스트 파람에 root-context.xml 분석진행
+	xml 2개 생성하고 거기 DOCTYPE 설정, configuration 태그설정, mapper 태그 설정
+	
+	
+3.root-context.xml작성
+	3개 작성
+	xml 화일 2개 생성 
+	doctype설정 config.dtd 있는곳엔 configuration 설정
+	map.dtd있는곳엔 mapper namespace까지 작성"album.albumBean"
+	
+4.album-servlet.xml	
+
+
+

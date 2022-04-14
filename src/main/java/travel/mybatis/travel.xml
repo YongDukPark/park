@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- travel.xml -->
+
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="travel.TravelBean">
+	<select id ="GetTotalCount" resultType="int">	<!-- 레코드 갯수 가져오는코드 -->	<!-- resultType 리턴타입 -->
+		select count(*) from travel
+		<if test="whatColumn=='area'">
+			where area like #{keyword}
+		
+		</if>
+		<if test="whatColumn=='style'">
+			where style like #{keyword}
+		</if>
+		
+	</select>
+
+	<select id ="GetTravelList" resultType="travel.model.TravelBean">	<!-- 레코드 갯수 가져오는코드 -->	<!-- resultType 리턴타입 -->
+		select * from travel 	<!-- 받는타입 -->
+		<if test="whatColumn=='area'">
+			where area like #{keyword}
+		</if>
+		<if test="whatColumn=='style'">
+			where style like #{keyword}
+		</if>
+		order by num desc
+	</select>
+	
+	<insert id ="InsertTravel">
+		insert into travel (num,name,age,area,style,price) values (travel_seq.nextval,#{name},#{age},#{area},#{style},#{price})
+	</insert>
+	
+	<select id = "GetTravel" resultType="travel.model.TravelBean">
+		select * from travel where num = #{num}
+	</select>
+	
+	<update id="Update">
+		update travel set name = #{name}, age = #{age}, area = #{area}, style = #{style}, price = #{price} where num = #{num}
+	</update>
+	
+	<delete id="Delete">
+		delete from travel where num = #{num}
+	</delete>
+	
+</mapper>
+  
+  
+  
+  <!-- mapper 화일 -->
+  

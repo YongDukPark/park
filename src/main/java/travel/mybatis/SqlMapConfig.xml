@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- SqlMapConfig.xml -->
+
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>	<!-- 얘는 기본적으로 써놔야한다 밑에 별칭지정은 안적어놔도 -->
+	<!-- <typeAliases>	별칭만들때 사용하는애
+		<typeAlias type="travel.model.TravelBean" alias="MyTravel"/>	이런식으로 경로를 간단하게 할수있다.
+	</typeAliases> -->									<!-- 이건 travel.xml에서 사용한다. resultType에 -->
+</configuration>
